@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -58,6 +58,7 @@ namespace StreamingPlatform.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Description,ArtistId")] Song song)
         {
+            ModelState.Remove("Artist");
             if (ModelState.IsValid)
             {
                 _context.Add(song);
