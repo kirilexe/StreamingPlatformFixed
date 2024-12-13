@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StreamingPlatform.Data;
+using StreamingPlatform.Models;
+
 
 namespace StreamingPlatform.Controllers
 {
@@ -47,7 +49,7 @@ namespace StreamingPlatform.Controllers
         // GET: MusicVideos/Create
         public IActionResult Create()
         {
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id");
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Title", "Title");
             return View();
         }
 
@@ -118,7 +120,7 @@ namespace StreamingPlatform.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", musicVideo.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Title", "Title", musicVideo.ArtistId);
             return View(musicVideo);
         }
 
