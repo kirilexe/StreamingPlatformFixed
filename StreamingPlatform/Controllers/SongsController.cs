@@ -47,7 +47,7 @@ namespace StreamingPlatform.Controllers
         // GET: Songs/Create
         public IActionResult Create()
         {
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id");
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Title", "Title");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace StreamingPlatform.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", song.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Title", "Title", song.ArtistId);
             return View(song);
         }
 
@@ -82,7 +82,7 @@ namespace StreamingPlatform.Controllers
             {
                 return NotFound();
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", song.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Title", "Title", song.ArtistId);
             return View(song);
         }
 
@@ -118,7 +118,7 @@ namespace StreamingPlatform.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", song.ArtistId);
+            ViewData["ArtistId"] = new SelectList(_context.Artist, "Title", "Title", song.ArtistId);
             return View(song);
         }
 
