@@ -1,8 +1,29 @@
-﻿@{
+﻿@using StreamingPlatform.Data
+@inject ApplicationDbContext _context
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+@{
+    var artistCount = _context.Artist.Count();
+    var songCount = _context.Song.Count();
+    var genreCount = _context.Genre.Count();
+    var musicVideoCount = _context.Genre.Count();
+    // Add more entities as needed
+}
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <hr />
+
+    <h2>Application Statistics</h2>
+    <ul>
+        <li><strong>Artists:</strong> @artistCount</li>
+        <li><strong>Songs:</strong> @songCount</li>
+        <li><strong>Genres:</strong> @genreCount</li>
+        <li><strong>Music Videos:</strong> @musicVideoCount</li>
+        <!-- Add more items dynamically -->
+    </ul>
 </div>

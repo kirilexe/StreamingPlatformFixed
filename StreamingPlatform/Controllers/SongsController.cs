@@ -98,6 +98,7 @@ namespace StreamingPlatform.Controllers
                 return NotFound();
             }
 
+            ModelState.Remove("Artist");
             if (ModelState.IsValid)
             {
                 try

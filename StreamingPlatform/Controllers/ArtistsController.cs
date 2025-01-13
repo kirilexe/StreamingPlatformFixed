@@ -94,7 +94,8 @@ namespace StreamingPlatform.Controllers
             {
                 return NotFound();
             }
-
+            ModelState.Remove("GenreList");
+            ModelState.Remove("SongsList");
             if (ModelState.IsValid)
             {
                 try
